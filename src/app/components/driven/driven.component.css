@@ -1,0 +1,38 @@
+.principal{
+    height: 100vh;
+    
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #cacaca;
+}
+
+.card{
+    border-radius: 15px;
+}
+
+.input{
+    border-radius: 20px;
+}
+
+.form{
+    width: 450px;
+}
+
+.row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.grow{
+    width: 100%;
+}
+
+.colum{
+    display: flex;
+    justify-content: space-between;
+    
+}

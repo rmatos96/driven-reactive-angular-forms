@@ -1,0 +1,92 @@
+<div class="principal">
+    <mat-card class="card">
+        <mat-card-header>
+        <mat-card-title class="titulo">Faça seu Cadastro Reativo!</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="row">
+                <form action="" class="form" [formGroup]="dados" (ngSubmit)="submit()">
+                    <mat-form-field appearance="fill" class="grow">
+                        <mat-label>Nome</mat-label>
+                        <input type="text" matInput placeholder="Nome..." formControlName="name" autocomplete="off">
+                        <mat-error>
+                            <span *ngIf="dados.controls['name'].getError('required')"> Campo Obrigatório</span>
+                            <span *ngIf="dados.controls['name'].getError('minlength')"> Menos que o Minimo</span>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill" class="grow">
+                        <mat-label>Sobrenome</mat-label>
+                        <input type="text" matInput placeholder="Sobrenome..." formControlName="lastname" autocomplete="off">
+                        <mat-error>
+                            <span *ngIf="dados.controls['lastname'].getError('required')"> Campo Obrigatório</span>
+                            <span *ngIf="dados.controls['lastname'].getError('minlength')"> Menos que o Minimo</span>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill" class="grow">
+                        <mat-label>Username</mat-label>
+                        <input type="text" matInput placeholder="Username..." formControlName="username" autocomplete="off">
+                        <mat-error>
+                            <span *ngIf="dados.controls['username'].getError('required')"> Campo Obrigatório</span>
+                            <span *ngIf="dados.controls['username'].getError('minlength')"> Menos que o Minimo</span>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill" class="grow">
+                        <mat-label>CPF</mat-label>
+                        <input type="text" matInput placeholder="CPF..." formControlName="cpf" autocomplete="off">
+                        <mat-error>
+                            <span *ngIf="dados.controls['cpf'].getError('required')"> Campo Obrigatório</span>
+                            <span *ngIf="dados.controls['cpf'].getError('minlength')"> Menos que o Minimo</span>
+                            <span *ngIf="dados.controls['cpf'].getError('maxlength')"> Maxímo Atingido</span>
+                        </mat-error>
+                    </mat-form-field>
+                    
+                <div class="colum">    
+                    <mat-form-field appearance="fill">
+                        <mat-label>Endereço</mat-label>
+                        <input type="text" matInput placeholder="Endereço..." formControlName="address" autocomplete="off">
+                        <mat-error>
+                            <span *ngIf="dados.controls['address'].getError('required')"> Campo Obrigatório</span>
+                            <span *ngIf="dados.controls['address'].getError('minlength')"> Menos que o Minimo</span>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Complemento</mat-label>
+                        <input type="text" matInput placeholder="Complemento..." formControlName="complemento" autocomplete="off">
+                    </mat-form-field>
+                </div>   
+
+                    <mat-form-field appearance="fill" class="grow">
+                        <mat-label>Senha</mat-label>
+                        <input type="password" matInput placeholder="Senha..." formControlName="senha">
+                        <mat-error>
+                            <span *ngIf="dados.controls['senha'].getError('required')"> Campo Obrigatório</span>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill" class="grow">
+                        <mat-label>Confirmar Senha</mat-label>
+                        <input type="password" matInput placeholder="Confirmar Senha..." formControlName="senha2">
+                        <mat-error>
+                            <span *ngIf="dados.controls['senha2'].getError('required')"> Campo Obrigatório</span>
+                        </mat-error>
+                    </mat-form-field>
+                   
+                    <mat-form-field appearance="fill" class="grow" formArrayName="contato" *ngFor="let t of tel.controls;let i=index">
+                            <mat-label>Telefone</mat-label>
+                            <input type="number" matInput placeholder="Telefone..." [formControlName]="i" autocomplete="off">
+                    </mat-form-field>
+                    
+                    <button class="grow" diretiva color="warn" type="button" (click)="novo()">
+                            <mat-icon>add</mat-icon>
+                    </button>
+                    
+                    <button type="submit" mat-stroked-button color="primary" [disabled]="dados.invalid"> Enviar Formulário Reativo</button>
+                </form>
+            </div> 
+        </mat-card-content>
+    </mat-card>
+</div>
